@@ -14,24 +14,39 @@ import java.util.ArrayList;
  */
 public class UsersAdapter extends ArrayAdapter<User> {
 
+    private static class ViewHolder {
+        TextView name;
+        TextView home;
+    }
+
     public UsersAdapter(Context context, ArrayList<User> users) {
-        super(context, 0, users);
+        super(context, R.layout.rowlayout, users);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        // Get the data item for this position
         User user = getItem(position);
 
+        // Check if an existing view is being reused, otherwise inflate the view
+        ViewHolder viewHolder; // view lookup cache stored in tag
+
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.rowlayout, parent, false);
+            viewHolder = new ViewHolder();
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.rowlayout, parent, false);
+            viewHolder.name = (TextView) convertView.findViewById(R.id.tvName);
+            viewHolder.home = (TextView) convertView.findViewById(R.id.tvHometown);
+            convertView.setTag(viewHolder);
         }
+        else
+            viewHolder = (ViewHolder) convertView.getTag();
 
-        TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
-        TextView tvHome = (TextView) convertView.findViewById(R.id.tvHometown);
+        // Populate the data into the template view using the data object
+        viewHolder.name.setText(user.name);
+        viewHolder.home.setText(user.hometown);
 
-        tvName.setText(user.name);
-        tvHome.setText(user.hometown);
-
+        // Return the completed view to render on screen
         return convertView;
     }
 }
