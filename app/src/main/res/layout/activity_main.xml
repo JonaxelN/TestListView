@@ -6,7 +6,7 @@
     tools:context="com.example.testlistview.MainActivity" >
 
     <ListView
-        android:id="@+id/lvUser"
+        android:id="@+id/list_cliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

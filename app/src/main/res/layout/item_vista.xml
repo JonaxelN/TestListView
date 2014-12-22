@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/content"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:columnCount="3"
+    android:minHeight="64.0dip"
+    android:rowCount="2">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_column="0"
+        android:layout_columnSpan="3"
+        android:layout_row="0"
+        android:layout_rowSpan="1"
+        android:background="@android:color/darker_gray" />
+
+    <ImageView
+        android:id="@+id/agenda_item_color"
+        android:layout_width="24.0dip"
+        android:layout_height="24.0dip"
+        android:layout_column="0"
+        android:layout_gravity="center|left|top"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginLeft="16.0dip"
+        android:layout_marginRight="8.0dip"
+        android:layout_marginTop="8.0dip"
+        android:layout_row="1"
+        android:layout_rowSpan="1"
+        android:src="@drawable/user_icon" />
+
+    <LinearLayout
+        android:id="@+id/agenda_item_text_container"
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_gravity="fill_horizontal|center"
+        android:layout_marginRight="4dip"
+        android:layout_row="1"
+        android:layout_rowSpan="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/cliente"
+            style="?android:attr/textAppearanceMediumInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="18.0sp"
+            android:textStyle="bold"
+            android:text="Cliente"/>
+
+        <TextView
+            android:id="@+id/hora"
+            style="?android:attr/textAppearanceSmallInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="14.0sp"
+            android:text="Hora"/>
+
+        <TextView
+            android:id="@+id/duracion"
+            style="?android:attr/textAppearanceSmallInverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-3.0dip"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textSize="14.0sp"
+            android:text="Duracion"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/selected_marker"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_column="2"
+        android:layout_gravity="center_vertical"
+        android:layout_row="1"
+        android:layout_rowSpan="1"
+        android:background="@drawable/ic_launcher"
+        android:visibility="gone" />
+</GridLayout>
